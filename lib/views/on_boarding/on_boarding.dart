@@ -10,50 +10,59 @@ class OnBoarding extends StatelessWidget {
 
   List<PageViewModel> pages = [
     PageViewModel(
-      title: "Introduction title 1",
-      body: "lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem"
-    ),
+        title: "Connecting",
+        body:
+            "Help and connect with other people that might need you.",
+        image: const Image(
+          image: AssetImage("assets/images/on_boarding/1.png"),
+        )),
     PageViewModel(
-        title: "Introduction title 2",
-        body: "lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem"
-    ),
+        title: "Giving",
+        body:
+            "Don't throw away your old toys or cloths or whatever, give them away instead.",
+        image: const Image(
+          image: AssetImage("assets/images/on_boarding/2.png"),
+        )),
     PageViewModel(
-        title: "Introduction title 3",
-        body: "lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem lorem ipsum lorem"
-    )
+        title: "Better place",
+        body:
+            "Make the world a better place by reducing wastes.",
+        image: const Image(
+          image: AssetImage("assets/images/on_boarding/3.png"),
+        ))
   ];
 
-  void onBoardingComplete(){
+  void onBoardingComplete() {
     AppPreferences.setOnBoardingComplete(true);
-    Get.to(LoginPage());
+    Get.to(()=>const LoginPage());
   }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      color: MyColors.primary,
-      width: size.width,
-      height: size.height,
-      child: SafeArea(
-        child: IntroductionScreen(
-          pages: pages,
-          showDoneButton: true,
-          done: const Text("Done",style: TextStyle(fontWeight: FontWeight.w700),),
-          onDone: onBoardingComplete,
-          next: const Text("Next"),
-          showSkipButton: true,
-          skip: const Text("Skip"),
-          dotsDecorator: DotsDecorator(
-            activeColor: MyColors.accent,
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              side: const BorderSide(color: MyColors.accent,width: 1),
-              borderRadius: BorderRadius.circular(25)
-            )
+        color: MyColors.primary,
+        width: size.width,
+        height: size.height,
+        child: SafeArea(
+          child: IntroductionScreen(
+            pages: pages,
+            showDoneButton: true,
+            done: const Text(
+              "Done",
+              style: TextStyle(fontWeight: FontWeight.w700),
+            ),
+            onDone: onBoardingComplete,
+            next: const Text("Next"),
+            showSkipButton: true,
+            skip: const Text("Skip"),
+            dotsDecorator: DotsDecorator(
+                activeColor: MyColors.accent,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: MyColors.accent, width: 1),
+                    borderRadius: BorderRadius.circular(25))),
           ),
-        ),
-      )
-    );
+        ));
   }
 }

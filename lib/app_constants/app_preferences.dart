@@ -11,15 +11,22 @@ class AppPreferences{
   }
 
   static String onBoarding_key = "onBoardingComplete";
+  static String loggedIn_key = "loggedIn";
 
 
+  static void setLoggedIn(bool value){
+    prefs.setBool(loggedIn_key, value);
+  }
+
+  static bool getLoggedIn(){
+    return prefs.getBool(loggedIn_key) ?? false;
+  }
 
   static void setOnBoardingComplete(bool value) {
     prefs.setBool(onBoarding_key, value);
   }
 
   static bool getOnBoardingComplete() {
-    bool? isComplete = prefs.getBool(onBoarding_key);
-    return isComplete ?? false;
+    return prefs.getBool(onBoarding_key) ?? false;
  }
 }
