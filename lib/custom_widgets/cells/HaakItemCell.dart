@@ -12,12 +12,12 @@ class HaakItemCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
       child: Container(
         // padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: MyColors.disabledColor,width: 1)
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
+            border: Border.all(color: MyColors.accentLight,width: 1)
         ),
         height: 180,
         width: 140,
@@ -26,7 +26,7 @@ class HaakItemCell extends StatelessWidget {
           children: [
             Expanded(child: CachedNetworkImage(
                 fit: BoxFit.fitHeight,
-                placeholder: (context, url) => const CircularProgressIndicator(),
+                placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
                 imageUrl: item.images[0]
             ),),
             Container(

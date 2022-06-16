@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:haak/app_constants/colors.dart';
 import 'package:haak/views/home/pages/browse_page.dart';
 import 'package:haak/views/home/pages/home_page.dart';
+import 'package:haak/views/home/pages/settings_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
     const HomePage(),
     const BrowsePage(),
     Container(color: Colors.yellow,),
-    Container(color: Colors.green,),
+    const SettingsPage(),
   ];
 
   void navBarItemClickedWith(int index) {
