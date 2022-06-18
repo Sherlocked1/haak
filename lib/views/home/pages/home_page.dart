@@ -5,6 +5,7 @@ import 'package:haak/Models/Item.dart';
 import 'package:haak/app_constants/colors.dart';
 import 'package:haak/custom_widgets/HaakButton.dart';
 import 'package:haak/custom_widgets/cells/HaakItemCell.dart';
+import 'package:haak/views/post/post_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,6 +40,10 @@ class _HomePageState extends State<HomePage> {
       item: newListings[index],
     );
 
+  }
+
+  void postNewItemClicked(){
+    Get.to(()=> const PostItem());
   }
 
   @override
@@ -124,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 SizedBox(height: 60,),
-                Center(child: HaakButton(size: Size(size.width - 100,60), onPressed: (){}, text: "Post new item",color: MyColors.accent,textColor: MyColors.primary,))
+                Center(child: HaakButton(size: Size(size.width - 100,60), onPressed: postNewItemClicked, text: "Post new item",color: MyColors.accent,textColor: MyColors.primary,))
               ],
             ),
           ),

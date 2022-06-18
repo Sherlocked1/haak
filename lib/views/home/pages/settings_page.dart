@@ -4,16 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:haak/app_constants/colors.dart';
 import 'package:haak/custom_widgets/HaakButton.dart';
+import 'package:haak/views/authentication/login.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
+
+
+  void signOut(){
+    Get.to(()=>const LoginPage());
+  }
 
   void logOutClicked(){
     var size = Get.size;
     Get.dialog(
         Center(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
             width: size.width - 100,height: 250,
             decoration: BoxDecoration(
               color: MyColors.primary,
@@ -22,13 +28,13 @@ class SettingsPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Are you sure you want to logout ?",maxLines: 2,textAlign: TextAlign.center,
+                const Text("Are you sure you want to logout ?",maxLines: 2,textAlign: TextAlign.center,
                   style: TextStyle(fontFamily: "inter",fontSize: 20,fontWeight: FontWeight.bold,color: MyColors.accentDark,decoration: TextDecoration.none),),
                 Column(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    HaakButton(size: Size(size.width - 120,50), onPressed: (){}, text: "Yes",color: Colors.redAccent,textColor: MyColors.primary),
-                    SizedBox(height: 10,),
+                    HaakButton(size: Size(size.width - 120,50), onPressed: signOut, text: "Yes",color: Colors.redAccent,textColor: MyColors.primary),
+                    const SizedBox(height: 10,),
                     HaakButton(size: Size(size.width - 120,50), onPressed: (){}, text: "No",color: MyColors.accent,textColor: MyColors.primary,),
                   ],
                 ),
